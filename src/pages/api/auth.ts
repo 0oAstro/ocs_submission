@@ -61,8 +61,8 @@ export default async function handler(
       return res.status(401).json({ error: "Invalid credentials" });
     }
 
-    // If admin, fetch all users, otherwise just the current user
-    let query = supabase.from("users").select("userid, role");
+    // Modify the query to include password_hash
+    let query = supabase.from("users").select("userid, role, password_hash");
     if (user.role !== "admin") {
       query = query.eq("userid", sanitizedUserId);
     }

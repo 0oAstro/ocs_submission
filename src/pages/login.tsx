@@ -5,6 +5,7 @@ import { MD5 } from "../utils/md5";
 interface User {
   userid: string;
   role: "admin" | "basic";
+  password_hash?: string; // Add password_hash to interface
 }
 
 export default function LoginPage() {
@@ -84,6 +85,9 @@ export default function LoginPage() {
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
                       Role
                     </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                      Password Hash
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
@@ -102,6 +106,9 @@ export default function LoginPage() {
                         >
                           {user.role}
                         </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-500">
+                        {user.password_hash || "N/A"}
                       </td>
                     </tr>
                   ))}
