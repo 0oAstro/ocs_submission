@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { GetServerSideProps } from "next";
 import { MD5 } from "../utils/md5";
-import { useState } from "react";
 import { useRouter } from "next/router"; // <-- added import
 
 interface LoginPageProps {
